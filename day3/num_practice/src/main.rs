@@ -27,10 +27,53 @@ fn main() {
     assert!(v6==1597);
 
     /*P7*/
+    let x7=1_000.000_1;//f64
+    let _y7:f32 = 0.12;
+    let _z7=0.01_f64;
+
+    println!("{}",type_of(&x7));
+
+    /*P8*/
+    assert!(0.1_f32+0.2_f32==0.3_f32);
+    
+
+    /*P9*/
+    let mut sum=0;
+    for i in  -3..2{
+        sum+=1;
+    }
+
+    assert!(sum== 5);
+
+    for c in 'a'..='z'{
+        println!("{}",c as u8);
+    }
+
+    /*P10*/
+    use std::ops::{Range,RangeInclusive};
+    assert_eq!((1..5), Range{start: 1, end: 5});
+    assert_eq!((1..=5), RangeInclusive::new(1,5));
 
 
+    /*P11*/
+    assert!(1i32 + 2== 3);
+    assert!(1i32 - 2 == -1);
+    assert!(1i8 - 2 == -1);
 
+    assert!(3 * 50 == 150);
+    
+    println!("{}",9.6 / 3.0);
+    assert!(9.6 / 3.2 != 3.0);
+
+    assert!(24 % 5 == 4);
+
+    assert!(true && false == false);
+    assert!(true || false == true);
+    assert!(!true == false);
+
+    println!("0011 AND 0101 is {:04b}", 0b0011u32 & 0b0101);
 }
+
 
 fn type_of<T>(_: &T) ->String{
     format!("{}",std::any::type_name::<T>())
